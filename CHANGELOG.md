@@ -3,9 +3,18 @@
 BREAKING CHANGES
   * `client.grpc` defaults to `true` now instead of `false`. This is to make it
      harder to misconfigure Connect [[GH-282](https://github.com/hashicorp/consul-helm/pull/282)]
-     
+
      If you do not wish to enable gRPC for clients, set `client.grpc` to
      `false` in your local values file.
+
+  * `connectInject.centralConfig` defaults to `true` now instead of `false`. This is to make it
+     easier to configure Connect via `service-defaults` and other routing
+     config [[GH-302](https://github.com/hashicorp/consul-helm/pull/302)]
+     See https://www.consul.io/docs/agent/options.html#enable_central_service_config
+
+     If you wish to disable central config, set `connectInject.centralConfig` to
+     false in your local values file. NOTE: If `connectInject.enabled` is false,
+     then central config is not enabled so this change will not affect you. 
 
 ## 0.12.0 (Oct 28, 2019)
 
